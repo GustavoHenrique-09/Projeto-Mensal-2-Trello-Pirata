@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+}
+nav{
+    display: flex;
+    justify-content: space-around; /*Faz com que o espaço ao redor seja metade do espaço entre eles*/
+    align-content: center; /*Centraliza verticalmente os conteúdos*/
+    font-family: Arial, Helvetica, sans-serif;
+    background: #315D86;
+    height: 13vh;
+}
+.nav-list{
+    list-style: none;
+    display: flex;
+}
+.nav-list li{
+    letter-spacing: 2px;
+    margin-left: 32px;
+    margin-top: 5vh;
+}
+.logo img{
+    display: flex;
+    height: 7vh;
+    margin-top: 1vh;
+    position: absolute;
+    left: 3%;
+}
+.lista{
+    background: #eee;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 10px;
+}
+.card{
+    background: white;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid black;
+    word-break: break-word;
+}
+#botao_lista{
+    margin-left: 3vh;
+    margin-top: 3vh;
+    padding: 5px;
+}
+.btnRemove{
+    padding: 5px;
+    margin-left: 3px;
+    background-color: white;
+    color: red;
+    border-radius: 35%;
+}
