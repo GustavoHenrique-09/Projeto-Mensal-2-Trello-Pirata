@@ -1,42 +1,43 @@
 // Pega as listas do localStorage ou começa com um array vazio se não achar nada
 let listas = JSON.parse(localStorage.getItem("listas")) || [];
 
-// Salva as listas no localStorage
+// Salva todos os itens no local "listas"
 function salvar() {
   localStorage.setItem("listas", JSON.stringify(listas));
 }
 
-// Mostra as listas na tela
+//Função de inicialização do código
 function renderizar() {
   const container = document.getElementById("listas-container");
-  container.innerHTML = ""; // Limpa o conteúdo atual
+  container.innerHTML = "";
 
-  // Para cada lista...
+  // Cria uma div e class para as listas
   listas.forEach((lista, indexLista) => {
     const listaDiv = document.createElement("div");
     listaDiv.className = "lista";
 
-    // Título da lista
+    //Título da lista
     const titulo = document.createElement("h3");
     titulo.innerHTML = lista.titulo;
 
-    // Botão para excluir a lista
+    //Botão para excluir a lista
     const btnExcluir = document.createElement("button");
     btnExcluir.textContent = "❌";
     btnExcluir.style.marginLeft = "10px";
     btnExcluir.onclick = function () {
       removerLista(indexLista);
     };
-
+    
     titulo.appendChild(btnExcluir);
     listaDiv.appendChild(titulo);
 
-    // Mostrar os cards da lista
+    //Cria a div para armazenar cada card
     lista.cards.forEach((textoCard, indexCard) => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = textoCard;
 
+      //botão de excluir card
       const btnRemover = document.createElement("button");
       btnRemover.textContent = "X";
       btnRemover.className = "btnRemove";
@@ -48,14 +49,17 @@ function renderizar() {
       listaDiv.appendChild(card);
     });
 
-    // Campo de texto para adicionar novo card
+    // Input pra adicionar um novo card
     const input = document.createElement("input");
     input.placeholder = "Novo card";
+    input.style.marginTop = "10px";
     listaDiv.appendChild(input);
 
-    // Botão para adicionar novo card
+    // Botão pra adicionar o card nomeado
     const btnAddCard = document.createElement("button");
     btnAddCard.innerHTML = "Adicionar Card";
+    btnAddCard.style.padding = "4px"
+    btnAddCard.style.marginTop = "7px"
     btnAddCard.onclick = function () {
       adicionarCard(indexLista, input.value);
     };
@@ -65,7 +69,7 @@ function renderizar() {
   });
 }
 
-// Adiciona nova lista
+// Adiciona uma nova lista
 function adicionarLista() {
   const nome = prompt("Digite o nome da lista:");
   if (!nome) return;
@@ -74,7 +78,7 @@ function adicionarLista() {
   renderizar();
 }
 
-// Adiciona novo card a uma lista
+// Adiciona um novo card 
 function adicionarCard(indexLista, texto) {
   if (!texto) return;
   listas[indexLista].cards.push(texto);
@@ -82,14 +86,14 @@ function adicionarCard(indexLista, texto) {
   renderizar();
 }
 
-// Remove card de uma lista
+// Remover card de uma lista
 function removerCard(indexLista, indexCard) {
   listas[indexLista].cards.splice(indexCard, 1);
   salvar();
   renderizar();
 }
 
-// Remove lista inteira
+// Remover lista inteira
 function removerLista(indexLista) {
   listas.splice(indexLista, 1);
   salvar();
