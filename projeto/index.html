@@ -3,26 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Projeto</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <nav>
-            <div>
-                <a class="logo" href="/"><img src="logo.png" alt=""></a>
-            </div>
-            <ul class="nav-list">
-                <li><a href="/">Início</a></li>
-                <li><a href="/">Meus Projetos</a></li>
-                <li><a href="/">Templates</a></li>
-                <li><a href="/">Meu Perfil</a></li>
-            </ul>
+            <a class="logo" href="/"><img src="logo.png" alt=""></a>
         </nav>
     </header>
-    <div id="listas-container"></div>
-    <button id="botao_lista" onclick="adicionarLista()">Adicionar Lista</button>
-  
-    <script src="script.js"></script>
+    <main>
+        <h1>PROJETO</h1>
+        <div>
+            <input type="text" id="nome_lista" placeholder="Nome da lista">
+            <input type="button" value="Adicionar" id="botao_lista" onclick="adicionarLista()">
+        </div>
+        <section id="quadro"></section>
+        <script src="script.js"></script>
+    </main>
   </body>
 </html>
